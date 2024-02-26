@@ -14,4 +14,5 @@ Migrations (See details of changes made in the scripts):
 Testing:
 Run the scripts in the order discussed under migrations and validate manually that they have taken effect.
 
-Rollback: (TODO)
+Rollback: 
+If you want to rollback to a previous version of the schema, be sure to start from the sql file corresponding to the last migration script you used  and continue in reverse order. 
