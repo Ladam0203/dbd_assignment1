@@ -1,18 +1,23 @@
-Assignment : EShop  Database schema migration
+# Introduction
+This assignment was created to practice and display skills in regards of database schema migration. 
+The repository contains operations for a hypothetical e-commerce store's database. Particularly: creation and migrations.
 
-Manual Migration:
+## Manual Migrations
 
-Setting up: 
+### Setup
 1. Create a Eshop database 
 2. Run initial-schema.sql
 
-Migrations (See details of changes made in the scripts):
+### Migrate
+
 3. Run add-category.sql
 4. Run product-attribute-changes-not-null.sql
 5. Run add-ratings.sql
 
-Testing:
-Run the scripts in the order discussed under migrations and validate manually that they have taken effect.
+#### For a detailed documentation of the changes made by each migration, examine the comments inside the SQL files.
 
-Rollback: 
-If you want to rollback to a previous version of the schema, be sure to start from the sql file corresponding to the last migration script you used  and continue in reverse order. 
+### Test
+Run the scripts in the specified order and manually examine whether the desired changes have taken effect.
+
+### Rollback 
+Execute scripts postfixed with '-rollback' in a LIFO manner. Start with the rollback of the last migration script you executed, then continue in reverse order until you reach the desired state. 
