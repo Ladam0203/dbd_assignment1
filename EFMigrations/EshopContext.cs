@@ -28,6 +28,15 @@ public class EshopContext : DbContext
         modelBuilder.Entity<Category>()
             .Property(p => p.Id)
             .ValueGeneratedOnAdd();
+        
+        modelBuilder.Entity<ProductRating>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+        modelBuilder.Entity<ProductRating>()
+            .HasOne(pr => pr.Product)
+            .WithOne(p => p.Rating)
+            .HasForeignKey<ProductRating>(pr => pr.ProductId);
+
     }
 }
 
@@ -38,6 +47,9 @@ public class Product
     public decimal Price { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
+    public int RatingId { get; set; }
+    public ProductRating? Rating { get; set; }
+
 }
 
 public class Category
@@ -46,4 +58,15 @@ public class Category
     public string Name { get; set; }
     public int ProductId { get; set; }
     public Product Product { get; set; }
+
 }
+
+public class ProductRating
+{
+    public int Id { get; set; }
+    public int ProductId { get; set; }
+    public Product Product { get; set; }
+    public int Rating { get; set; }
+} 
+
+

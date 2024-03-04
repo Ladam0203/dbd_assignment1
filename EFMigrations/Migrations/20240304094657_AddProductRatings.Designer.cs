@@ -2,6 +2,7 @@
 using EFMigrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF.Migrations
 {
     [DbContext(typeof(EshopContext))]
-    partial class EshopContextModelSnapshot : ModelSnapshot
+    [Migration("20240304094657_AddProductRatings")]
+    partial class AddProductRatings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.16");
@@ -61,7 +64,6 @@ namespace EF.Migrations
                     b.ToTable("ProductTable");
                 });
 
-
             modelBuilder.Entity("EFMigrations.ProductRating", b =>
                 {
                     b.Property<int>("Id")
@@ -82,7 +84,6 @@ namespace EF.Migrations
                     b.ToTable("ProductRating");
                 });
 
-
             modelBuilder.Entity("EFMigrations.Product", b =>
                 {
                     b.HasOne("EFMigrations.Category", "Category")
@@ -93,7 +94,6 @@ namespace EF.Migrations
 
                     b.Navigation("Category");
                 });
-
 
             modelBuilder.Entity("EFMigrations.ProductRating", b =>
                 {
@@ -112,12 +112,10 @@ namespace EF.Migrations
                         .IsRequired();
                 });
 
-
             modelBuilder.Entity("EFMigrations.Product", b =>
                 {
                     b.Navigation("Rating");
                 });
-
 #pragma warning restore 612, 618
         }
     }
