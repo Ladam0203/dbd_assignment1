@@ -32,9 +32,19 @@ The main branch of the manual migrations is **main-ef**. All the branches concer
 - [Install EF Core tools](https://learn.microsoft.com/en-us/ef/core/cli/dotnet) (globally)
 
 ### Setup
-1. Run the InitialCreate at EFMigrations/Migrations
+Run the migrations scripts to reach the current state of the database.
 ```
-dotnet ef database update InitialCreate
+dotnet ef database update
 ```
-### Migrations
-2. Run AddCategoryToProduct
+
+### Rollback
+Get a list of all migrations.
+```
+dotnet ef migrations list
+```
+
+Rollback to a specific migration.
+```
+dotnet ef database update <migration-name>
+```
+
