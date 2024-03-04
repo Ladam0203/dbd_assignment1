@@ -61,6 +61,7 @@ namespace EF.Migrations
                     b.ToTable("ProductTable");
                 });
 
+
             modelBuilder.Entity("EFMigrations.ProductRating", b =>
                 {
                     b.Property<int>("Id")
@@ -81,6 +82,7 @@ namespace EF.Migrations
                     b.ToTable("ProductRating");
                 });
 
+
             modelBuilder.Entity("EFMigrations.Product", b =>
                 {
                     b.HasOne("EFMigrations.Category", "Category")
@@ -91,6 +93,7 @@ namespace EF.Migrations
 
                     b.Navigation("Category");
                 });
+
 
             modelBuilder.Entity("EFMigrations.ProductRating", b =>
                 {
@@ -109,10 +112,12 @@ namespace EF.Migrations
                         .IsRequired();
                 });
 
+
             modelBuilder.Entity("EFMigrations.Product", b =>
                 {
                     b.Navigation("Rating");
                 });
+
 #pragma warning restore 612, 618
         }
     }

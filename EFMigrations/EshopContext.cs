@@ -24,6 +24,7 @@ public class EshopContext : DbContext
             .HasOne(p => p.Category)
             .WithOne(c => c.Product)
             .HasForeignKey<Product>(p => p.CategoryId);
+
         modelBuilder.Entity<Category>()
             .Property(p => p.Id)
             .ValueGeneratedOnAdd();
@@ -35,6 +36,7 @@ public class EshopContext : DbContext
             .HasOne(pr => pr.Product)
             .WithOne(p => p.Rating)
             .HasForeignKey<ProductRating>(pr => pr.ProductId);
+
     }
 }
 
@@ -47,6 +49,7 @@ public class Product
     public Category Category { get; set; }
     public int RatingId { get; set; }
     public ProductRating? Rating { get; set; }
+
 }
 
 public class Category
@@ -55,6 +58,7 @@ public class Category
     public string Name { get; set; }
     public int ProductId { get; set; }
     public Product Product { get; set; }
+
 }
 
 public class ProductRating
@@ -64,3 +68,5 @@ public class ProductRating
     public Product Product { get; set; }
     public int Rating { get; set; }
 } 
+
+
