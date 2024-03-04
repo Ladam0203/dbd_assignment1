@@ -1,18 +1,13 @@
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+
+namespace EF;
 
 public class EshopContext : DbContext
 {
 
     public DbSet<Product> ProductTable { get; set; }
-
-    
-
-    public EshopContext()
-    {
-      
-    }
 
     // The following configures EF to create a Sqlite database file in the
     // special "local" folder for your platform.
@@ -22,8 +17,8 @@ public class EshopContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder) 
     {
         modelBuilder.Entity<Product>()
-        .Property(p => p.Id)
-        .ValueGeneratedOnAdd();
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
     }
 }
 
@@ -33,4 +28,3 @@ public class Product
     public string Name { get; set; }
     public decimal Price { get; set; }
 }
-
